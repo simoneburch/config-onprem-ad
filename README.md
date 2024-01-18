@@ -3,8 +3,7 @@
 </p>
 
 <h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
-
+This tutorial explains the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -34,12 +33,12 @@ Creating the Domain Controller VM
 
 Step 2:
 
-![image](https://i.imgur.com/EmWrF9P.jpg)
+<img src="https://i.imgur.com/EmWrF9P.jpg" width="65%" height="65%"/>
 
 Creating the Client VM
 - Create a new VM and label it as Client-1
-- Use Windows 10 pro with 2 vCPUs
-- Make sure to use the same resource group and VNet that the DC-1 VM is using **PLEASE NOTE: the DC-1 vnet may take a few minutes to load before you can select it. Just be patient or refresh the page until it is available to choose.)
+- Use Windows 10 Pro with 2 vCPUs
+- Make sure to use the same resource group and VNet that the DC-1 VM is using **PLEASE NOTE: the DC-1 vnet may take a few minutes to load before you can select it. Just be patient or refresh the page until that option is available to choose.
 - Check that both VMs are in the same VNet by clicking on the "Virtual Machines" in the Azure Portal
 
 Step 3:
