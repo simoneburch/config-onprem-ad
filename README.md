@@ -47,11 +47,11 @@ __Step 2: Creating the Client VM__
 <br />
 <br />
 
-Step 3:
+__Step 3: Testing VM Connectivity__
 
 ![image](https://i.imgur.com/SFzICM7.jpg)
 
-Testing VM Connections
+
 - Log in to Client-1 and ping DC-1's IP address using the ping -t command:
 - Copy DC-1's private IP address from the Azure portal
 - Navigate to the Command Prompt by looking up "CMD" in the search bar
@@ -60,11 +60,11 @@ Testing VM Connections
 <br />
 <br />
 
-Step 4:
+__Step 4: Enable local firewall__
 
 ![image](https://i.imgur.com/bJOj3i5.jpg)
 
-Opening the firewall
+
 - To open that firewall connection, lets go to DC-1 VM via remote desktop
 - Once the DC-1 VM is open, type wf.msc to the search bar
 - Sort by protocol and find ICMPv4
@@ -74,11 +74,11 @@ Opening the firewall
 <br />
 <br />
 
-Step 5:
+__Step 5: Installing Active Directory__
 
 ![image](https://i.imgur.com/T18uPM9.jpg)
 
-Installing Active Directory
+
 - Now go to DC-1 VM and under server manger go to add roles and features
 - Make sure under server roles you select "Active Directory Domain Services"
 - After installation is complete, you got to the flag in the top right and hit promote to finalize the process
@@ -88,11 +88,11 @@ Installing Active Directory
 <br />
 <br />
 
-Step 6:
+__Step 6: Creating Admin account, User account, and Organizational Units__
 
 ![image](https://i.imgur.com/rT8VXam.jpg)
 
-Admin account and folders
+
 - Since we turn the DC-1 VM as a domain controller when logging in we have to use username as "mydomain.com\labuser" or the \username created and the password is the same as it was created in the VM setup
 - Login and hit the search for active directory users and computers
 - Create two folders by right clicking mydomain.com folder and select new then organization unit.
@@ -103,15 +103,15 @@ Admin account and folders
 <br />
 <br />
 
-Step 7:
+__Step 7: Joining Windows 10 VM (Client-1) to the domain__
 
 ![image](https://i.imgur.com/AX8AtuP.jpg)
 
-Client-1 connection to the domain
-- Go to azure and copy DC-1 private IP address then go to client-1 and click network interface under networking then DNS server tab and hit custom and paste DC-1 private IP address there
-- Once clicking save is done, we can restart client-1 in azure
-- Relog into client-1 go to CMD and ipconfig/all you can then see that the DNS server IP address is the same as DC-1 private IP
-- Now we can right click on start and hit system from there hit rename this PC(advanced) then change and check domain and type out the domain as mydomain.com then type the username and password as mydomain.com\jane_admin and password as the one created in DC-1
+
+- Go to Azure and copy DC-1 private IP address then go to client-1 and click network interface under networking then DNS server tab and hit custom and paste DC-1 private IP address there
+- Once clicking save is done, we can restart client-1 in Azure
+- Relog into client-1 go to CMD and ipconfig/all you can then see the DNS server IP address is the same as DC-1 private IP
+- Now we can right-click on start and hit system from there hit rename this PC(advanced) then change and check domain and type out the domain as mydomain.com then type the username and password as mydomain.com\jane_admin and password as the one created in DC-1
 - After a restart of client-1 VM, as client 1 is a member of the domain we can login as mydomain.com\jane_admin
 - Once login go to system then remote desktop and select users at the bottom 
 - Hit add then type "domain users" and hit check names then ok
@@ -121,11 +121,11 @@ Client-1 connection to the domain
 <br />
 <br />
 
-Step 8:
+__Step 9: Creating additional users using a PowerShell script__
 
 ![image](https://i.imgur.com/C55Oiwa.jpg)
 
-Adding new users
+
 - Now in DC-1 VM open Powershell ISE as administrator 
 - Create a new file and paste a script provided here: https://github.com/jasonmolinet/configure-ad/blob/main/generate-names
 - Then run the script with the play button
