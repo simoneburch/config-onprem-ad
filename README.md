@@ -139,8 +139,8 @@ __Step 9: Creating additional users using a PowerShell script__
 ![image](https://i.imgur.com/C55Oiwa.jpg)
 
 
-- Now in DC-1 VM open Powershell ISE as administrator 
-- Create a new file and paste a script provided here: https://github.com/jasonmolinet/configure-ad/blob/main/generate-names
+- Log in to DC-1 VM as jane_admin and open Powershell ISE as an administrator 
+- Create a new file and paste the contents of this script into it ()https://github.com/simoneburch/ps-adusers
 - Then run the script with the play button
 - !!! NOTICE !!! When executing the PowerShell script: 1) Make sure you are doing it on Windows Server VM, not the Client VM. It won't work if you do. 2) Make sure your "_EMPLOYEES" OU within Active Directory matches the OU in your script. If it doesn't match, you will get errors.
 - While the accounts are creating go to the _EMPLOYEES folder and copy a random one and go to client 1 VM and attempt to log in as that random user
