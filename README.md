@@ -127,9 +127,11 @@ __Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
 
 - Remote log in to Client-1 as mydomain.com\jane_admin
 - Right-click the start menu > open System properties > click Remote Desktop on right panel > scroll down to User Accounts > choose Select Users That Can Remotely Access This PC > click ADD on the pop-up > type Domain Users in the input box > click Check Names for that group in the system (it will auto-populate if it is) > click OK
-- Allow “domain users” access to remote desktop
-- You can now log into Client-1 as a normal, non-administrative user now
-- Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
+- Allow “MYDOMAIN\Domain Users” access to Remote Desktop by clicking OK
+- You can now log into Client-1 as a normal, non-administrative user <br/>
+<br/>
+**Now anyone belonging to this Domain Users group can use Remote Desktop <br/>
+  **Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
 <br />
 <br />
 
