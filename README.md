@@ -3,7 +3,7 @@
 </p>
 
 <h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial explains the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
+This tutorial explains the installation, configuration, and creation of different users in the on-premises Active Directory using Azure Virtual Machines.<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -130,8 +130,7 @@ __Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
 - Allow “MYDOMAIN\Domain Users” access to Remote Desktop by clicking OK
 - You can now log into Client-1 as a normal, non-administrative user <br/>
 <br/>
-**Now anyone belonging to this Domain Users group can use Remote Desktop <br/>
-  **Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
+**Now anyone belonging to this Domain Users group can use Remote Desktop to log in to Client-1 <br/>
 <br />
 <br />
 
