@@ -40,8 +40,10 @@ __Step 2: Creating the Client VM__
 
 - Create a new VM and label it as Client-1
 - Use Windows 10 Pro with 2 vCPUs
-- Make sure to use the same resource group and VNet that the DC-1 VM is using **PLEASE NOTE: the DC-1 vnet may take a few minutes to load before you can select it. Just be patient or refresh the page until that option is available to choose.
+- Make sure to use the same resource group and VNet that the DC-1 VM is using 
 - Check that both VMs are in the same VNet by clicking on the "Virtual Machines" in the Azure Portal <br />
+<br />
+**PLEASE NOTE: the DC-1 vnet may take a few minutes to load before you can select it. Just be patient or refresh the page until that option is available to choose. <br />
 <br />
 <br />
 
