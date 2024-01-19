@@ -49,7 +49,7 @@ __Step 2: Creating the Client VM__
 
 __Step 3: Testing VM Connectivity__
 
-![image](https://i.imgur.com/SFzICM7.jpg)
+<img src="https://i.imgur.com/SFzICM7.jpg" width="75%" height="75%"/>
 
 
 - Log in to Client-1 and ping DC-1's IP address using the ping -t command:
@@ -121,11 +121,12 @@ __Step 7: Joining Windows 10 VM (Client-1) to the domain__
 <br />
 <br />
 
-__Step 8: Set up Remote Desktop for Non-Admin users on Client-1__
+__Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
 
+<img src="https://github.com/simoneburch/config-ad/assets/152559137/1a04227f-045e-4a17-9f02-dea802b7ab00" width="75%" height="75%"/>
 
-- Log into Client-1 as mydomain.com\jane_admin and open system properties
-- Click “Remote Desktop”
+- Remote log in to Client-1 as mydomain.com\jane_admin
+- Right-click the start menu > open System properties > click Remote Desktop on right panel > scroll down to User Accounts > choose Select Users That Can Remotely Access This PC > click ADD on the pop-up > type Domain Users in the input box > click Check Names for that group in the system (it will auto-populate if it is) > click OK
 - Allow “domain users” access to remote desktop
 - You can now log into Client-1 as a normal, non-administrative user now
 - Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
