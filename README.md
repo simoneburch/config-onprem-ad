@@ -123,11 +123,12 @@ __Step 7: Joining Windows 10 VM (Client-1) to the domain__
 
 __Step 8: Set up Remote Desktop for Non-Admin users on Client-1__
 
-Log into Client-1 as mydomain.com\jane_admin and open system properties
-Click “Remote Desktop”
-Allow “domain users” access to remote desktop
-You can now log into Client-1 as a normal, non-administrative user now
-Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
+
+- Log into Client-1 as mydomain.com\jane_admin and open system properties
+- Click “Remote Desktop”
+- Allow “domain users” access to remote desktop
+- You can now log into Client-1 as a normal, non-administrative user now
+- Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
 <br />
 <br />
 
@@ -139,6 +140,7 @@ __Step 9: Creating additional users using a PowerShell script__
 - Now in DC-1 VM open Powershell ISE as administrator 
 - Create a new file and paste a script provided here: https://github.com/jasonmolinet/configure-ad/blob/main/generate-names
 - Then run the script with the play button
+- !!! NOTICE !!! When executing the PowerShell script: 1) Make sure you are doing it on Windows Server VM, not the Client VM. It won't work if you do. 2) Make sure your "_EMPLOYEES" OU within Active Directory matches the OU in your script. If it doesn't match, you will get errors.
 - While the accounts are creating go to the _EMPLOYEES folder and copy a random one and go to client 1 VM and attempt to log in as that random user
 - If you go to the C: then users you can see the users log into that computer for example client 1
 - Now log out and find a new user from DC-1 and copy their display name as we will attempt to show what happens when someone logs in and fails too many times
