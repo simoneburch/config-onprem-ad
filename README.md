@@ -19,19 +19,21 @@ This tutorial explains the implementation of on-premises Active Directory within
 
 <h2>Deployment and Configuration Steps</h2>
 
-Step 1:
+__Step 1: Creating the Domain Controller VM__
 
 ![image](https://i.imgur.com/zmUeU34.jpg)
 
-Creating the Domain Controller VM
+
 - Navigate to https://portal.azure.com/ and create a VM > label it as DC-1 (the domain controller)
 - When creating the VM, select "Windows Server 2022" image with 2 vCPUs
 - Configure it to 2 vCPUs
 - Make note of the username and password for later use
 - Click on review and create
-- Once created, go to the networking tab > click on the "Network Interface" > IP configurations > ipconfig1 and make sure the Allocation button is set to "static". Save
+- Once created, go to the networking tab > click on the "Network Interface" > IP configurations > ipconfig1 and make sure the Allocation button is set to "static". Save <br />
+<br />
+<br />
 
-Step 2:
+__Step 2:__
 
 <img src="https://i.imgur.com/EmWrF9P.jpg" width="65%" height="65%"/>
 
