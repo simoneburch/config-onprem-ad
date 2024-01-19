@@ -140,16 +140,43 @@ __Step 9: Creating additional users using a PowerShell script__
 
 
 - Log in to DC-1 VM as jane_admin and open Powershell ISE as an administrator 
-- Create a new file and paste the contents of this script into it ()https://github.com/simoneburch/ps-adusers
-- Then run the script with the play button
-- !!! NOTICE !!! When executing the PowerShell script: 1) Make sure you are doing it on Windows Server VM, not the Client VM. It won't work if you do. 2) Make sure your "_EMPLOYEES" OU within Active Directory matches the OU in your script. If it doesn't match, you will get errors.
-- While the accounts are creating go to the _EMPLOYEES folder and copy a random one and go to client 1 VM and attempt to log in as that random user
-- If you go to the C: then users you can see the users log into that computer for example client 1
-- Now log out and find a new user from DC-1 and copy their display name as we will attempt to show what happens when someone logs in and fails too many times
-- Then go into DC-1 and right click on the user and hit reset password and make a new password but also check unlock account, you can also go to properties by right clicking and then account and hit unlock
-- You can also right click and disable account and then try to log in and you'll get an error 
-- Then right click and re-enable the account <br />
+- Create a new file in PowerShell ISE and paste the contents of this script into it: https://github.com/simoneburch/ps-adusers/blob/main/accts_creation_psscript
+<br/>
+
+  **!!! NOTICE !!! When executing the PowerShell script: 1) Make sure you are doing it on Windows Server VM, not the Client VM. It won't work if you do. 2) Make sure your "_EMPLOYEES" OU within Active Directory matches the OU in your script. If it doesn't match, you will get errors.**
+<br/>
+<br/>
+
+- Run the script and observe the accounts being created
+- When all acounts have been created, open Active Directory Users and Computers. Notice the accounts have populated into the _EMPLOYEES Organizational Unit
+- Choose any one of those names and remote in as a different user to Client-1 (i.e. mydomain.com\lalo.ruga) and the password from the script :)
+- It works! You can go into the command prompt and observe that your new name is there (i.e. C:\Users\lalo.ruga>). GO into the file folders > This PC > C: Drive > Users folder > a new file for your user has been created. <br/>
+<br/>
+<br/>
+
+__Step 10: User Account Solutions/Examples__
+
+![image](https://github.com/simoneburch/config-ad/assets/152559137/70312b74-e6b9-4cf4-ac72-00ff13b66535)
+
+
+- Remote into DC-1 as jane_admin and go to the _EMPLOYEES OU. Choose a user and right-click for properties. 
+- In the Account tab you can see a checkbox to Unlock Account. This can be used when a user logs in too many times or otherwise becomes locked out of their account.<br/>
+<br/>
+<br/>
+<br/>
+
+![image](https://github.com/simoneburch/config-ad/assets/152559137/d78e731f-6377-49ba-b585-40bbea8db840)
+
+- You can reset the password by also right-clicking the user's name. The pop-up window gives New Password inputs and other account options.<br/>
+<br/>
+<br/>
+<br/>
+
+![image](https://github.com/simoneburch/config-ad/assets/152559137/07a4f0a3-d2b2-4d53-88fc-21143069e5b8)
+
+- Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.<br/>
 <br />
 <br />
 
-**The tutorial ends here but is a great starting point in getting familiar with Active Directory :)
+
+**The tutorial ends here but this is a great starting point in getting familiar with Active Directory :)
