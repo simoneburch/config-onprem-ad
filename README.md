@@ -121,6 +121,16 @@ __Step 7: Joining Windows 10 VM (Client-1) to the domain__
 <br />
 <br />
 
+__Step 8: Set up Remote Desktop for Non-Admin users on Client-1__
+
+Log into Client-1 as mydomain.com\jane_admin and open system properties
+Click “Remote Desktop”
+Allow “domain users” access to remote desktop
+You can now log into Client-1 as a normal, non-administrative user now
+Normally you’d want to do this with Group Policy that allows you to change MANY systems at once <br />
+<br />
+<br />
+
 __Step 9: Creating additional users using a PowerShell script__
 
 ![image](https://i.imgur.com/C55Oiwa.jpg)
