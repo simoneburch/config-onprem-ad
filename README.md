@@ -48,7 +48,7 @@ __Step 2: Creating the Client VM__
 
 __Step 3: Testing Client VM and Domain Controller VM Connectivity__
 
-<img src="https://i.imgur.com/SFzICM7.jpg" width="75%" height="75%"/>
+<img src="https://i.imgur.com/SFzICM7.jpg" width="70%" height="70%"/>
 
 
 - Log in to Client-1 and ping DC-1's IP address using the ping -t command:
