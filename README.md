@@ -105,13 +105,23 @@ __Step 6: Creating Admin account, User account, and Organizational Units__
 
 __Step 7: Joining Windows 10 VM (Client-1) to the domain__
 
-![image](https://i.imgur.com/AX8AtuP.jpg)
+Right now, the DNS settings for Client-1 are pointing to the DNS server in the VNet that it was assigned to. We need its DNS settings to point to the DNS server in the DC-1 Domain Controller so that we can successfully join it to the domain.<br/>
+<br/>
+
+![image](https://github.com/simoneburch/config-ad/assets/152559137/d2a8e6ce-f1b6-43d8-b9be-128a2cc453ed)
+
+- So, from the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address: get (copy) the DC-1 private IP > go to Client-1 > Network Settings > NIC > DNS servers > set to Custom and paste DC-1s private IP (no spaces around it). Save.
+- Restart Client-1 in the Azure Portal (this will flush the DNS cache of the old VNet/DNS server settings to make room for the fresh DC-1 DNS server settings).
+<br/>
+<br/>
 
 
-- Go to Azure and copy DC-1 private IP address then go to client-1 and click network interface under networking then DNS server tab and hit custom and paste DC-1 private IP address there
-- Once clicking save is done, we can restart client-1 in Azure
-- Relog into client-1 go to CMD and ipconfig/all you can then see the DNS server IP address is the same as DC-1 private IP
-- Now we can right-click on start and hit system from there hit rename this PC(advanced) then change and check domain and type out the domain as mydomain.com then type the username and password as mydomain.com\jane_admin and password as the one created in DC-1
+
+- Remote log in to Client-1 as the original local admin user (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)
+- Join Client-1 to the domain: right_click the windows icon > system > rename this pc > change > domain (mydomain.com) > OK > enter mydomain.com\jane_admin and Labuser12345, ok, welcome window - ok, restart window - ok.
+
+
+
 - After a restart of client-1 VM, as client 1 is a member of the domain we can login as mydomain.com\jane_admin
 - Once login go to system then remote desktop and select users at the bottom 
 - Hit add then type "domain users" and hit check names then ok
