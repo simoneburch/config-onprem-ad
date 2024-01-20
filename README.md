@@ -95,7 +95,7 @@ __Step 6: Creating Admin account, User account, and Organizational Units__
 
 - Since we turn the DC-1 VM as a domain controller when logging in we have to use username as "mydomain.com\labuser" or the \username created and the password is the same as it was created in the VM setup
 - Login and hit the search for active directory users and computers
-- Create two folders by right clicking mydomain.com folder and select new then organization unit.
+- Create two folders by right-clicking the mydomain.com folder and select new then organization unit.
 - Label them _ADMINS and _EMPLOYEES
 - Create a user called jane doe and make the password to never expire then right click on the user and hit properties and under member of tab then hit add and type domain and check names from there select domain admins and apply
 - Log out of DC-1 and log back in as mydomain.com\jane_admin
@@ -110,26 +110,22 @@ Right now, the DNS settings for Client-1 are pointing to the DNS server in the V
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/d2a8e6ce-f1b6-43d8-b9be-128a2cc453ed)
 
-- So, from the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address: get (copy) the DC-1 private IP > go to Client-1 > Network Settings > NIC > DNS servers > set to Custom and paste DC-1s private IP (no spaces around it). Save.
+- So, from the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address: get (copy) the DC-1 private IP > go to Client-1 > Network Settings > NIC > DNS servers > set to Custom and paste DC-1s private IP (no spaces around it). Save.<br/>
 - Restart Client-1 in the Azure Portal (this will flush the DNS cache of the old VNet/DNS server settings to make room for the fresh DC-1 DNS server settings).
 <br/>
 <br/>
 
+![image](https://github.com/simoneburch/config-ad/assets/152559137/d37ae7af-1380-4011-b93c-ee654e34d291)
 
+- Remote log in to Client-1 as the original local admin user (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)<br/>
+<br/>
+<br/>
 
-- Remote log in to Client-1 as the original local admin user (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)
-- Join Client-1 to the domain: right_click the windows icon > system > rename this pc > change > domain (mydomain.com) > OK > enter mydomain.com\jane_admin and Labuser12345, ok, welcome window - ok, restart window - ok.
+![image](https://github.com/simoneburch/config-ad/assets/152559137/a0fef272-a772-46f3-b251-dc2a59d5dfd3)
 
-
-
-- After a restart of client-1 VM, as client 1 is a member of the domain we can login as mydomain.com\jane_admin
-- Once login go to system then remote desktop and select users at the bottom 
-- Hit add then type "domain users" and hit check names then ok
-- Now go back to DC-1 VM and open active directory users and computers
-- Click on the "computers" folder
-- Verify Client-1 shows up in there <br />
-<br />
-<br />
+- Join Client-1 to the domain: right_click the Windows icon > System > Rename this PC(advanced) > Change... > select Domain, input mydomain.com, OK > enter domain admin account name and password, OK > Welcome popup window, OK > Restart window, OK.<br/>
+<br/>
+<br/>
 
 __Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
 
