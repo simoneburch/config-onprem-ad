@@ -24,9 +24,8 @@ __Step 1: Creating the Domain Controller VM__
 ![image](https://i.imgur.com/zmUeU34.jpg)
 
 
-- Navigate to https://portal.azure.com/ and create a VM > label it as DC-1 (the domain controller)
+- Navigate to https://portal.azure.com/ and create a VM > label it as DC-1 (the Domain Controller)
 - When creating the VM, select "Windows Server 2022" image with 2 vCPUs
-- Configure it to 2 vCPUs
 - Make note of the username and password for later use
 - Click on review and create
 - Once created, go to the networking tab > click on the "Network Interface" > IP configurations > ipconfig1 and make sure the Allocation button is set to "static". Save <br />
@@ -43,7 +42,7 @@ __Step 2: Creating the Client VM__
 - Make sure to use the same resource group and VNet that the DC-1 VM is using 
 - Check that both VMs are in the same VNet by clicking on the "Virtual Machines" in the Azure Portal <br />
 <br />
-**PLEASE NOTE: the DC-1 vnet may take a few minutes to load before you can select it. Just be patient or refresh the page until that option is available to choose. <br />
+**PLEASE NOTE: the DC-1 VNet may take a few minutes to load before you can select it. Just be patient or refresh the page until that option is available to choose from. <br />
 <br />
 <br />
 
@@ -118,14 +117,14 @@ Right now, the DNS settings for Client-1 are pointing to the DNS server in the V
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/d37ae7af-1380-4011-b93c-ee654e34d291)
 
 
-- Remote in to Client-1 as the original local admin user (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)<br/>
+- Remote in to Client-1 as the original labuser account (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)<br/>
 <br/>
 <br/>
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/a0fef272-a772-46f3-b251-dc2a59d5dfd3)
 
 
-- Join Client-1 to the domain: right_click the Windows icon > System > Rename this PC(advanced) > Change... > select Domain, input mydomain.com, OK > enter domain admin account name and password, OK > Welcome popup window, OK > Restart window, OK.<br/>
+- Join Client-1 to the domain: right_click the Windows icon > System > Rename this PC(advanced) > Change... > select Domain, input mydomain.com, OK > enter mydomain\jane_admin account name and password, OK > Welcome popup window, OK > Restart window, OK<br/>
 <br/>
 <br/>
 
