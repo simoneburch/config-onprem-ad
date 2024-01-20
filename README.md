@@ -10,7 +10,7 @@ This tutorial explains the installation, configuration, and creation of differen
 - Microsoft Azure (Virtual Machines)
 - Remote Desktop
 - Active Directory Domain Services
-- PowerShell
+- PowerShell scripting language
 
 <h2>Operating Systems Used </h2>
 
@@ -47,7 +47,7 @@ __Step 2: Creating the Client VM__
 <br />
 <br />
 
-__Step 3: Testing VM Connectivity__
+__Step 3: Testing Client VM and Domain Controller VM Connectivity__
 
 <img src="https://i.imgur.com/SFzICM7.jpg" width="75%" height="75%"/>
 
@@ -60,17 +60,14 @@ __Step 3: Testing VM Connectivity__
 <br />
 <br />
 
-__Step 4: Enable local firewall__
+__Step 4: Enable local Windows firewall on Domain Controller__
 
 ![image](https://i.imgur.com/bJOj3i5.jpg)
 
 
-- To open that firewall connection, lets go to DC-1 VM via remote desktop
-- Once the DC-1 VM is open, type wf.msc to the search bar
-- Sort by protocol and find ICMPv4
-- Enable the rule for the two rules that state "Core Networking Diagnostics ICMP"
-- Go back to client-1 VM and see it ping and display a connection between client-1 and DC-1
-- Hitting control and C in the CMD it will stop the constant pinging <br />
+- Login to the Domain Controller and enable ICMPv4 on the local Windows firewall:
+	Remote into DC-1>go to Windows start icon > type Windows Defender and Advanced Security > Inbound Rules > expand > sort by protocol > ICMPv4 > Right-click to Enable Rule for both Core Networking Diagnostic-ICMP Echo Requests
+- Log back into Client-1 to see the ping succeed <br />
 <br />
 <br />
 
@@ -79,27 +76,29 @@ __Step 5: Installing Active Directory__
 ![image](https://i.imgur.com/T18uPM9.jpg)
 
 
-- Now go to DC-1 VM and under server manger go to add roles and features
-- Make sure under server roles you select "Active Directory Domain Services"
-- After installation is complete, you got to the flag in the top right and hit promote to finalize the process
-- Hit add a new forest and label it as mydomain.com
-- Password can be Password1
-- After going through the installation, its going to restart and you have to reconnect to DC-1 VM again via remote desktop <br />
+- In DC-1 > Server Manager > go to Add Roles and Features > under Server Roles > select "Active Directory Domain Services"
+- Promote as a Domain Controller in the upper right corner yellow triangle: Setup a new forest to be named mydomain.com 
+- Restart and then log back into DC-1 as user: mydomain.com\labuser and a password<br />
+<br/>
+**we need to specify the context of the user by including the whole domain, or FQDN when we log in now*<br />
 <br />
 <br />
 
 __Step 6: Creating Admin account, User account, and Organizational Units__
 
-![image](https://i.imgur.com/rT8VXam.jpg)
+![image](https://github.com/simoneburch/config-ad/assets/152559137/4f920fa3-e263-47c2-bb8d-00c77cdbbbc9)
 
 
-- Since we turn the DC-1 VM as a domain controller when logging in we have to use username as "mydomain.com\labuser" or the \username created and the password is the same as it was created in the VM setup
-- Login and hit the search for active directory users and computers
-- Create two folders by right-clicking the mydomain.com folder and select new then organization unit.
-- Label them _ADMINS and _EMPLOYEES
-- Create a user called jane doe and make the password to never expire then right click on the user and hit properties and under member of tab then hit add and type domain and check names from there select domain admins and apply
-- Log out of DC-1 and log back in as mydomain.com\jane_admin
-- Once logged as Jane, you can look at the CMD and type "whoami" to show that you are logged as jane_admin <br />
+- In Active Directory Users and Computers (ADUC), create an Organizational Unit (OU) called “_EMPLOYEES”
+- Create a new OU named “_ADMINS”<br/>
+<br/>
+
+![image](https://github.com/simoneburch/config-ad/assets/152559137/b9c1fd76-3baf-4080-abe0-91e7108c4b3a)
+
+- Create a new employee named “Jane Doe” (set as same password) with the User logon name of “jane_admin” by right-clicking in the view space > New > User > fill in the New Object-User input fields.
+- Add jane_admin to the “Domain Admins” Security Group: Right-click user account > Properties > Member Of tab > Add > input Domain Admins > click Check Names > OK > Apply > OK
+- Log out/close the Remote Desktop connection to DC-1 as the labuser and log back in as “mydomain.com\jane_admin”
+- Use jane_admin as your admin account from now on<br />
 <br />
 <br />
 
@@ -110,6 +109,7 @@ Right now, the DNS settings for Client-1 are pointing to the DNS server in the V
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/d2a8e6ce-f1b6-43d8-b9be-128a2cc453ed)
 
+
 - So, from the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address: get (copy) the DC-1 private IP > go to Client-1 > Network Settings > NIC > DNS servers > set to Custom and paste DC-1s private IP (no spaces around it). Save.<br/>
 - Restart Client-1 in the Azure Portal (this will flush the DNS cache of the old VNet/DNS server settings to make room for the fresh DC-1 DNS server settings).
 <br/>
@@ -117,11 +117,13 @@ Right now, the DNS settings for Client-1 are pointing to the DNS server in the V
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/d37ae7af-1380-4011-b93c-ee654e34d291)
 
-- Remote log in to Client-1 as the original local admin user (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)<br/>
+
+- Remote in to Client-1 as the original local admin user (You can double-check DNS settings in the Command Prompt with ipconfig /all to make sure it points to the DC-1 private IP. Also, ping that IP for connectivity)<br/>
 <br/>
 <br/>
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/a0fef272-a772-46f3-b251-dc2a59d5dfd3)
+
 
 - Join Client-1 to the domain: right_click the Windows icon > System > Rename this PC(advanced) > Change... > select Domain, input mydomain.com, OK > enter domain admin account name and password, OK > Welcome popup window, OK > Restart window, OK.<br/>
 <br/>
@@ -130,6 +132,7 @@ Right now, the DNS settings for Client-1 are pointing to the DNS server in the V
 __Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
 
 <img src="https://github.com/simoneburch/config-ad/assets/152559137/1a04227f-045e-4a17-9f02-dea802b7ab00" width="75%" height="75%"/>
+
 
 - Remote log in to Client-1 as mydomain.com\jane_admin
 - Right-click the start menu > open System properties > click Remote Desktop on right panel > scroll down to User Accounts > choose Select Users That Can Remotely Access This PC > click ADD on the pop-up > type Domain Users in the input box > click Check Names for that group in the system (it will auto-populate if it is) > click OK
@@ -173,12 +176,14 @@ __Step 10: User Account Solutions/Examples__
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/d78e731f-6377-49ba-b585-40bbea8db840)
 
+
 - You can reset the password by also right-clicking the user's name. The pop-up window gives New Password inputs and other account options.<br/>
 <br/>
 <br/>
 <br/>
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/07a4f0a3-d2b2-4d53-88fc-21143069e5b8)
+
 
 - Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.<br/>
 <br />
