@@ -34,7 +34,7 @@ __Step 1: Creating the Domain Controller VM__
 
 __Step 2: Creating the Client VM__
 
-<img src="https://i.imgur.com/EmWrF9P.jpg" width="65%" height="65%"/>
+![image](https://github.com/simoneburch/config-ad/assets/152559137/2b376db9-72b0-4aa5-b850-3afb8ad30c56)
 
 
 - Create a new VM and label it as Client-1
@@ -61,8 +61,9 @@ __Step 3: Testing Client VM and Domain Controller VM Connectivity__
 
 __Step 4: Enable local Windows firewall on Domain Controller__
 
-![image](https://i.imgur.com/bJOj3i5.jpg)
-
+<p align="center">
+<img src="https://i.imgur.com/M1HM7m4.jpg" height="100%" width="100%"/>
+</p>
 
 - Login to the Domain Controller and enable ICMPv4 on the local Windows firewall:
 	Remote into DC-1>go to Windows start icon > type Windows Defender and Advanced Security > Inbound Rules > expand > sort by protocol > ICMPv4 > Right-click to Enable Rule for both Core Networking Diagnostic-ICMP Echo Requests
