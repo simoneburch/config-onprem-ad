@@ -72,14 +72,38 @@ __Step 4: Enable local Windows firewall on Domain Controller__
 
 __Step 5: Installing Active Directory__
 
-![image](https://i.imgur.com/T18uPM9.jpg)
-
-
 - In DC-1 > Server Manager > go to Add Roles and Features > under Server Roles > select "Active Directory Domain Services"
-- Promote as a Domain Controller in the upper right corner yellow triangle: Setup a new forest to be named mydomain.com 
-- Restart and then log back into DC-1 as user: mydomain.com\labuser and a password<br />
+<p align="center">
+<img src="https://i.imgur.com/LKpjSjC.jpg" height="60%" width="60%" alt="Azure Step 5-5"/>
+<img src="https://i.imgur.com/nRniK70.jpg" height="100%" width="100%" alt="Azure Step 5-5"/>
+</p>
+
+- Back on the Server Manager, click on the flag icon with a caution symbol on it (located at top-right header).
+- Click "Promote this server to a domain controller"
+<p align="center">
+<img src="https://i.imgur.com/5SEF3r7.jpg" height="60%" width="60%" alt="Azure Step 5-5"/>
+</p>
+
+- In the Deployment Configuration tab, select "Add a new forest".
+- Type any domain name you wish to use (this example uses **mydomain.com**)
+- Click "Next".
+<p align="center">
+<img src="https://i.imgur.com/KqLJ1zR.jpg" height="60%" width="60%" alt="Azure Step 5-5"/>
+</p>
+
+- Create a password of your choice.
+- Keep clicking "Next" until the "Install" option is enabled, then click "Install".
+  - _Installing will result in restarting the Domain Controller VM._
+<p align="center">
+<img src="https://i.imgur.com/sOfwFw2.jpg" height="60%" width="60%" alt="Azure Step 5-5"/>
+<img src="https://i.imgur.com/GGJhNCF.jpg" height="60%" width="60%" alt="Azure Step 5-5"/>
+<img src="https://i.imgur.com/8eabtaB.jpg" height="60%" width="60%" alt="Azure Step 5-5"/>
+</p>
+
+- Once restarted, log back into DC-1 as user > select "More Choices" > click "Use a different account" > now use __mydomain.com\labuser__ and the password you created.<br />
 <br/>
-**we need to specify the context of the user by including the whole domain, or FQDN when we log in now*<br />
+
+_**We need to specify the context of the user by including the whole domain, or FQDN when we log in now!<br />_
 <br />
 <br />
 
