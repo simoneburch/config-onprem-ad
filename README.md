@@ -184,7 +184,7 @@ __**Now anyone belonging to this Domain Users group can use Remote Desktop to lo
 <br/>
 
 - Run the script and observe the accounts being created
-- When all acounts have been created, open Active Directory Users and Computers. Notice the accounts have populated into the _EMPLOYEES Organizational Unit
+- When all accounts have been created, open Active Directory Users and Computers. Notice the accounts have populated into the _EMPLOYEES Organizational Unit
 - Choose any one of those names and remote in as a different user to Client-1 (i.e. mydomain.com\lalo.ruga) and the password from the script :)
 - It works! You can go into the command prompt and observe that your new name is there (i.e. C:\Users\lalo.ruga>). GO into the file folders > This PC > C: Drive > Users folder > a new file for your user has been created. <br/>
 <br/>
