@@ -215,7 +215,7 @@ __**Now anyone belonging to this Domain Users group can use Remote Desktop to lo
 - Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.
 <br/>
 
-__**Continue looking around since this is where many administrative functions like managing permissions and access to network resources are performed.__<br/>
+__**Continue looking around since this is where the administrator will be managing permissions and access to network resources.__<br/>
 <br />
 <br />
 
