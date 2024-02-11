@@ -42,7 +42,8 @@ __Step 2: Creating the Client VM__
 - Make sure to use the same resource group and VNet that the DC-1 VM is using 
 - Check that both VMs are in the same VNet by clicking on the "Virtual Machines" in the Azure Portal <br />
 <br />
-**PLEASE NOTE: The DC-1 VNet may take a few minutes to load before you can select it - Refresh the page until that option is available to choose from. <br />
+
+___**PLEASE NOTE: The DC-1 VNet may take a few minutes to load before you can select it - Refresh the page until that option is available to choose from.___<br />
 <br />
 <br />
 
@@ -104,7 +105,7 @@ __Step 5: Installing Active Directory__
 - Once restarted, log back into DC-1 as user > select "More Choices" > click "Use a different account" > now use __mydomain.com\labuser__ and the password you created.<br />
 <br/>
 
-_**We need to specify the context of the user by including the whole domain, or FQDN when we log in now!<br />_
+__**We need to specify the context of the user by including the whole domain, or FQDN when we log in now!<br />__
 <br />
 <br />
 
