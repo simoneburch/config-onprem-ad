@@ -209,9 +209,10 @@ __Step 10: User Account Solutions/Examples__
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/07a4f0a3-d2b2-4d53-88fc-21143069e5b8)
 
 
-- Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.<br/>
+- Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.
+- Continue looking around since this is where many administrative functions are performed to manage permissions and access to network resources.<br/>
 <br />
 <br />
 
 
-___**Tutorial finished... but a great starting point in getting familiar with Active Directory :)___
+___**Tutorial finished... :)___
