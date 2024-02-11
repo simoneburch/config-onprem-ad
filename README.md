@@ -105,7 +105,7 @@ __Step 5: Installing Active Directory__
 - Once restarted, log back into DC-1 as user > select "More Choices" > click "Use a different account" > now use __mydomain.com\labuser__ and the password you created.<br />
 <br/>
 
-__**We need to specify the context of the user by including the whole domain, or FQDN when we log in now!<br />__
+_**We now need to specify the context of the user by including the whole domain, or **fully qualified domain name (FQDN)** whenever we log in.<br />_
 <br />
 <br />
 
@@ -164,7 +164,9 @@ __Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
 - Allow “MYDOMAIN\Domain Users” access to Remote Desktop by clicking OK
 - You can now log into Client-1 as a normal, non-administrative user <br/>
 <br/>
-**Now anyone belonging to this Domain Users group can use Remote Desktop to log in to Client-1 <br/>
+
+__**Now anyone belonging to this Domain Users group can use Remote Desktop to log in to Client-1.__ <br/>
+
 <br />
 <br />
 
