@@ -210,7 +210,7 @@ __Step 10: User Account Solutions/Examples__
 
 
 - Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.
-- Continue looking around since this is where many administrative functions are performed to manage permissions and access to network resources.<br/>
+- Continue looking around since this is where many administrative functions like managing permissions and access to network resources are performed.<br/>
 <br />
 <br />
 
