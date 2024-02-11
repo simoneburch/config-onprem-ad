@@ -19,7 +19,7 @@ This tutorial explains the installation, configuration, and creation of differen
 
 <h2>Deployment and Configuration Steps</h2>
 
-__Step 1: Creating the Domain Controller VM__
+<h3>Step 1: Creating the Domain Controller VM</h3>
 
 ![image](https://i.imgur.com/zmUeU34.jpg)
 
@@ -32,7 +32,7 @@ __Step 1: Creating the Domain Controller VM__
 <br />
 <br />
 
-__Step 2: Creating the Client VM__
+<h3>Step 2: Creating the Client VM</h3>
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/2b376db9-72b0-4aa5-b850-3afb8ad30c56)
 
@@ -47,7 +47,7 @@ ___**PLEASE NOTE: The DC-1 VNet may take a few minutes to load before you can se
 <br />
 <br />
 
-__Step 3: Testing Client VM and Domain Controller VM Connectivity__
+<h3>Step 3: Testing Client VM and Domain Controller VM Connectivity</h3>
 
 <img src="https://i.imgur.com/SFzICM7.jpg" width="70%" height="70%"/>
 
@@ -60,7 +60,7 @@ __Step 3: Testing Client VM and Domain Controller VM Connectivity__
 <br />
 <br />
 
-__Step 4: Enable local Windows firewall on Domain Controller__
+<h3>Step 4: Enable local Windows firewall on Domain Controller</h3>
 
 <p align="center">
 <img src="https://i.imgur.com/M1HM7m4.jpg" height="100%" width="100%"/>
@@ -72,7 +72,7 @@ __Step 4: Enable local Windows firewall on Domain Controller__
 <br />
 <br />
 
-__Step 5: Installing Active Directory__
+<h3>Step 5: Installing Active Directory</h3>
 
 - In DC-1 > Server Manager > go to Add Roles and Features > under Server Roles > select "Active Directory Domain Services"
 <p align="center">
@@ -109,7 +109,7 @@ _**We now need to specify the context of the user by including the whole domain,
 <br />
 <br />
 
-__Step 6: Creating Admin account, User account, and Organizational Units__
+<h3>Step 6: Creating Admin account, User account, and Organizational Units</h3>
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/4f920fa3-e263-47c2-bb8d-00c77cdbbbc9)
 
@@ -127,7 +127,7 @@ __Step 6: Creating Admin account, User account, and Organizational Units__
 <br />
 <br />
 
-__Step 7: Joining Windows 10 VM (Client-1) to the domain__
+<h3>Step 7: Joining Windows 10 VM (Client-1) to the domain</h3>
 
 Right now, the DNS settings for Client-1 are pointing to the DNS server in the VNet that it was assigned to. We need its DNS settings to point to the DNS server in the DC-1 Domain Controller so that we can successfully join it to the domain.<br/>
 <br/>
@@ -154,7 +154,7 @@ Right now, the DNS settings for Client-1 are pointing to the DNS server in the V
 <br/>
 <br/>
 
-__Step 8: Set up Remote Desktop for all Non-Admin users on Client-1__
+<h3>Step 8: Set up Remote Desktop for all Non-Admin users on Client-1</h3>
 
 <img src="https://github.com/simoneburch/config-ad/assets/152559137/1a04227f-045e-4a17-9f02-dea802b7ab00" width="75%" height="75%"/>
 
@@ -170,7 +170,7 @@ __**Now anyone belonging to this Domain Users group can use Remote Desktop to lo
 <br />
 <br />
 
-__Step 9: Creating additional users using a PowerShell script__
+<h3>Step 9: Creating additional users using a PowerShell script</h3>
 
 ![image](https://i.imgur.com/C55Oiwa.jpg)
 
@@ -190,7 +190,7 @@ __Step 9: Creating additional users using a PowerShell script__
 <br/>
 <br/>
 
-__Step 10: User Account Solutions/Examples__
+<h3>Step 10: User Account Solutions/Examples</h3>
 
 ![image](https://github.com/simoneburch/config-ad/assets/152559137/70312b74-e6b9-4cf4-ac72-00ff13b66535)
 
@@ -213,9 +213,11 @@ __Step 10: User Account Solutions/Examples__
 
 
 - Disabling/Enabling the account from here is also possible by just right-clicking the name and choosing Disable Account. There is an icon that appears on the account name to indicate this option.
-- Continue looking around since this is where many administrative functions like managing permissions and access to network resources are performed.<br/>
+<br/>
+
+__**Continue looking around since this is where many administrative functions like managing permissions and access to network resources are performed.__<br/>
 <br />
 <br />
 
 
-___**Tutorial finished... :)___
+<h3>**Tutorial finished... :)</h3>
