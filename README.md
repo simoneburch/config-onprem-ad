@@ -42,7 +42,7 @@ __Step 2: Creating the Client VM__
 - Make sure to use the same resource group and VNet that the DC-1 VM is using 
 - Check that both VMs are in the same VNet by clicking on the "Virtual Machines" in the Azure Portal <br />
 <br />
-**PLEASE NOTE: the DC-1 VNet may take a few minutes to load before you can select it. Just be patient or refresh the page until that option is available to choose from. <br />
+**PLEASE NOTE: The DC-1 VNet may take a few minutes to load before you can select it - Refresh the page until that option is available to choose from. <br />
 <br />
 <br />
 
@@ -176,7 +176,7 @@ __Step 9: Creating additional users using a PowerShell script__
 - Create a new file in PowerShell ISE and paste the contents of this script into it: https://github.com/simoneburch/ps-adusers/blob/main/accts_creation_psscript
 <br/>
 
-  **!!! NOTICE !!! When executing the PowerShell script: 1) Make sure you are doing it on Windows Server VM, not the Client VM. It won't work if you do. 2) Make sure your "_EMPLOYEES" OU within Active Directory matches the OU in your script. If it doesn't match, you will get errors.**
+  **PLEASE NOTE: When executing the PowerShell script: 1) Make sure you are doing it on Windows Server VM, not the Client VM. It won't work if you do. 2) Make sure your "_EMPLOYEES" OU within Active Directory matches the OU in your script. If it doesn't match, you will get errors.**
 <br/>
 <br/>
 
@@ -214,4 +214,4 @@ __Step 10: User Account Solutions/Examples__
 <br />
 
 
-**The tutorial ends here but this is a great starting point in getting familiar with Active Directory :)
+___**Tutorial finished... but a great starting point in getting familiar with Active Directory :)___
