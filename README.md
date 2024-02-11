@@ -220,4 +220,4 @@ __**Continue looking around since this is where the administrator will be managi
 <br />
 
 
-<h3>**Tutorial finished... :)</h3>
+<h3>:)</h3>
