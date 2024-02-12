@@ -2,7 +2,7 @@
 <img src="https://github.com/simoneburch/config-ad/assets/152559137/a9a26ee3-8006-46b3-bcd0-7f160a942836" height="50%" width="50%" alt="On-Prem Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
+<h1 align="center">On-premises Active Directory Deployed in Azure</h1>
 This tutorial explains the installation, configuration, and creation of users in Active Directory (on-premises) using two Azure Virtual Machines. One is used for the domain controller and the other for the client. We join the client to the domain and solve common user issues. We also showcase the use of Remote Desktop, Active Directory Domain Services, and Organizational Units.
 
 <h2>Environments and Technologies Used</h2>
